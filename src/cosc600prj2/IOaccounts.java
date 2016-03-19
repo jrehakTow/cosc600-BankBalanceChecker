@@ -46,25 +46,25 @@ public class IOaccounts {
         bank_file.close();
     }
     
-    public double accounttype(char typeCK, double balCK){ //checks the account type
-        if (typeCK == 'C') {
-            Checking c = new Checking();
-            return c.interest();
+    public double accountType(char typeCheck, double balanceCheck){ //checks the account type
+        if (typeCheck == 'C') {
+            Checking checkingAccount = new Checking();
+            return checkingAccount.interest();
         }
-        if (typeCK == 'S') {
-            Savings s = new Savings();
-            return s.interest(balCK);           
+        if (typeCheck == 'S') {
+            Savings savingsAccount = new Savings();
+            return savingsAccount.interest(balanceCheck);           
         }
                    
-        if (typeCK =='B') {
-            Business b = new Business(); 
-            return b.interest();
+        if (typeCheck =='B') {
+            Business businessAccount = new Business(); 
+            return businessAccount.interest();
             }
         System.out.println("Error, account type not defined!");
         return -100; //shows error 
     }
     
-    public double interestCalc(double b, double intType){
-        return b + b*intType;
+    public double interestCalculator(double accountBalance, double intType){
+        return accountBalance + accountBalance*intType;
     }
 }

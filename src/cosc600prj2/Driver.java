@@ -18,41 +18,40 @@ public class Driver {
 
     public static void main(String[] args) {
           
-          IOaccounts r = new IOaccounts(); //create new class object r to read variables from file 
+          IOaccounts read = new IOaccounts(); //create new class object r to read variables from file 
           
           //check for how many accounts
-          r.openFile();
-          int length= r.accountCounter();
-          r.closeFile();
+          read.openFile();
+          int length = read.accountCounter();
+          read.closeFile();
           
-          IOaccounts[] n = new IOaccounts[length];
+          IOaccounts[] account = new IOaccounts[length];
           for(int i=0; i<length; i++){ //build an array of account objects
-              n[i] = new IOaccounts();
+              account[i] = new IOaccounts();
           }
         
           // reopen and assign values to account objects
-          r.openFile();
+          read.openFile();
           for(int i=0; i<length; i++){
                         
-              r.readFile();
-              n[i].name = r.name;
-              n[i].acnt_num = r.acnt_num;
-              n[i].phone = r.phone;
-              n[i].ssn =  r.ssn;
-              n[i].bal = r.bal;
-              n[i].type = r.type;
+              read.readFile();
+              account[i].name = read.name;
+              account[i].acnt_num = read.acnt_num;
+              account[i].phone = read.phone;
+              account[i].ssn =  read.ssn;
+              account[i].bal = read.bal;
+              account[i].type = read.type;
           }
-          r.closeFile();
+          read.closeFile();
       
           for(int i=0; i<length; i++){ //call methods to calc close balance 
-              n[i].close_bal = n[i].interestCalc(n[i].bal, n[i].accounttype(n[i].type, n[i].bal));
+              account[i].close_bal = account[i].interestCalculator(account[i].bal, account[i].accountType(account[i].type, account[i].bal));
           }
           
           //testing
           System.out.println("Name\tAccount\t\tPhone\t\tSSN\t\tOpen Balance\tClose Balance\tType\n"); // Print header
           for(int i=0; i<length; i++){ //print all accounts
-              System.out.println(n[i].name+"\t"+n[i].acnt_num+"\t"+n[i].phone+"\t"+n[i].ssn+"\t"+n[i].bal+"\t\t" + n[i].close_bal +"\t\t"+n[i].type);
+              System.out.println(account[i].name+"\t"+account[i].acnt_num+"\t"+account[i].phone+"\t"+account[i].ssn+"\t"+account[i].bal+"\t\t" + account[i].close_bal +"\t\t"+account[i].type);
           }
-          
     }  
 }
