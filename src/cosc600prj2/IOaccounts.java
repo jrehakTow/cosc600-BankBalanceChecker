@@ -1,6 +1,4 @@
-
-
-
+package cosc600prj2;
 import java.io.File;
 import java.util.Scanner;
 

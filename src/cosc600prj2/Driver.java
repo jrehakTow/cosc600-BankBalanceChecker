@@ -8,10 +8,11 @@
  * Print all account elements to console. 
  */
 
+package cosc600prj2;
 
 /**
  *
- * @author rehakjc
+ * @author James Rehak
  */
 public class Driver {
 
