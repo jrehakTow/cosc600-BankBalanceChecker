@@ -16,13 +16,13 @@ package cosc600prj2;
  */
 public class Driver {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
           
           IOaccounts read = new IOaccounts(); //create new class object r to read variables from file 
           
           //check for how many accounts
           read.openFile();
-          int length = read.accountCounter();
+          int length = read.countAccounts();
           read.closeFile();
           
           IOaccounts[] account = new IOaccounts[length];
@@ -45,7 +45,7 @@ public class Driver {
           read.closeFile();
       
           for(int i=0; i<length; i++){ //call methods to calc close balance 
-              account[i].close_bal = account[i].interestCalculator(account[i].bal, account[i].accountType(account[i].type, account[i].bal));
+              account[i].close_bal = account[i].computeInterest(account[i].bal, account[i].checkAccountType(account[i].type, account[i].bal));
           }
           
           //testing

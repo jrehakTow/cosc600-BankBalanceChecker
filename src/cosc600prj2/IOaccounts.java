@@ -24,7 +24,7 @@ public class IOaccounts {
         }       
     }  
     
-    public int accountCounter(){
+    public int countAccounts(){
         int count = 0;
         while(bank_file.hasNext()){
            count++;
@@ -46,25 +46,24 @@ public class IOaccounts {
         bank_file.close();
     }
     
-    public double accountType(char typeCheck, double balanceCheck){ //checks the account type
-        if (typeCheck == 'C') {
-            Checking checkingAccount = new Checking();
-            return checkingAccount.interest();
-        }
-        if (typeCheck == 'S') {
-            Savings savingsAccount = new Savings();
-            return savingsAccount.interest(balanceCheck);           
-        }
-                   
-        if (typeCheck =='B') {
-            Business businessAccount = new Business(); 
-            return businessAccount.interest();
-            }
-        System.out.println("Error, account type not defined!");
-        return -100; //shows error 
+    //checks the account type
+    public double checkAccountType(char typeCheck, double balanceCheck) throws Exception{ 
+    	
+    	switch(typeCheck){
+    		case 'C': 
+    			Checking checkingAccount = new Checking(); 
+    			return checkingAccount.interest();
+    		case 'S': 
+    			Savings savingsAccount = new Savings();
+    			return savingsAccount.interest(balanceCheck);   
+    		case 'B':
+    			 Business businessAccount = new Business(); 
+    	         return businessAccount.interest();
+    		default: throw new Exception("Error Account Type not defined");
+    	}
     }
     
-    public double interestCalculator(double accountBalance, double intType){
+    public double computeInterest(double accountBalance, double intType){
         return accountBalance + accountBalance*intType;
     }
 }
