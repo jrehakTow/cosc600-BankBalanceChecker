@@ -52,13 +52,13 @@ public class IOaccounts {
     	switch(typeCheck){
     		case 'C': 
     			Checking checkingAccount = new Checking(); 
-    			return checkingAccount.interest();
+    			return checkingAccount.getInterest();
     		case 'S': 
     			Savings savingsAccount = new Savings();
-    			return savingsAccount.interest(balanceCheck);   
+    			return savingsAccount.getInterest(balanceCheck);   
     		case 'B':
     			 Business businessAccount = new Business(); 
-    	         return businessAccount.interest();
+    	         return businessAccount.getInterest();
     		default: throw new Exception("Error Account Type not defined");
     	}
     }

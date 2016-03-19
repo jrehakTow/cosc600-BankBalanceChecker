@@ -3,7 +3,7 @@ package cosc600prj2;
 
 public class Business extends IOaccounts{
     
-    public double interest(){
+    public double getInterest(){
         return 0;
     }   
 }

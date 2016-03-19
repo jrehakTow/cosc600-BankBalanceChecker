@@ -4,7 +4,7 @@ package cosc600prj2;
 
 public class Savings extends IOaccounts{      
     
-    public double interest(double a){
+    public double getInterest(double a){
         double number = 5000;
         
         if (a > number)
