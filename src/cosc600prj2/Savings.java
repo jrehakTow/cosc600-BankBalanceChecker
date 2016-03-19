@@ -1,7 +1,5 @@
 package cosc600prj2;
 
-
-
 public class Savings extends IOaccounts{      
     
     public double getInterest(double a){

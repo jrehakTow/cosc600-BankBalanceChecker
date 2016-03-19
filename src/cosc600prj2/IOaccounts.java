@@ -3,8 +3,7 @@ import java.io.File;
 import java.util.Scanner;
 
 public class IOaccounts {
-    
-    //the variables
+
     public String name; 
     int acnt_num;
     String phone;
